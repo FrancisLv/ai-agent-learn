@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>智能客服</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>MCP 能力</h2>
+        <section>
+          <h3>资源文档</h3>
+          <ul id="resource-list"></ul>
+        </section>
+        <section>
+          <h3>工具</h3>
+          <ul id="tool-list"></ul>
+        </section>
+        <section>
+          <h3>Prompt</h3>
+          <ul id="prompt-list"></ul>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <h1>智能客服</h1>
+          <p>基于 MCP 的订单查询、退款与自动问答</p>
+        </header>
+
+        <section class="card">
+          <h2>自动问答</h2>
+          <div id="chat-window" class="chat-window"></div>
+          <form id="chat-form" class="row">
+            <input id="chat-input" placeholder="例如：查订单 20260101003" autocomplete="off" />
+            <button type="submit">发送</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>订单查询</h2>
+          <form id="query-form" class="row">
+            <input id="query-order-id" placeholder="输入订单号" autocomplete="off" />
+            <button type="submit">查询订单</button>
+          </form>
+          <pre id="query-result" class="result"></pre>
+        </section>
+
+        <section class="card">
+          <h2>退款</h2>
+          <form id="refund-form" class="refund-form">
+            <input id="refund-order-id" placeholder="输入订单号" autocomplete="off" />
+            <input id="refund-reason" placeholder="退款原因（可选）" autocomplete="off" />
+            <button type="submit">申请退款</button>
+          </form>
+          <pre id="refund-result" class="result"></pre>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="confirm-dialog">
+      <h3>确认退款</h3>
+      <p id="confirm-text"></p>
+      <div class="row">
+        <button id="confirm-cancel" type="button">取消</button>
+        <button id="confirm-ok" type="button">确认退款</button>
+      </div>
+    </dialog>
+
+    <dialog id="doc-dialog">
+      <h3 id="doc-title"></h3>
+      <pre id="doc-content"></pre>
+      <button id="doc-close" type="button">关闭</button>
+    </dialog>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
